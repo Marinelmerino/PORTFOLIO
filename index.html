@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Your Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #345995;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: #c4e2f0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #c4e2f0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        #hero {
+            background-color: #6fb3b8;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        #hero h1 {
+            font-size: 48px;
+        }
+
+        #hero p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #345995;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        #about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        #about .profile-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        #about .profile-img:hover {
+            transform: scale(1.1);
+        }
+
+        #about .about-content p {
+            max-width: 800px;
+            line-height: 1.6;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        #works .works-gallery {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .work-item {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .work-item p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: all 0.3s ease-in-out;
+        }
+
+        form label {
+            font-size: 18px;
+            color: #345995;
+        }
+
+        form input,
+        form textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #345995;
+            outline: none;
+        }
+
+        form button {
+            background-color: #345995;
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #2c4787;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #345995;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="logo">Me,Myself and I</div>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#works">My Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Me as an IT student</p>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="section-title">
+            <h2>About Me</h2>
+        </div>
+        <div class="about-content">
+            <img src="marinel.jpg.jpg" alt="Your Photo" class="profile-img">
+            <p>Hello! I'am Marinel B. Merino a college student in the Eastern Visayas State University took the course of Batchelor of Science in Information Technology. In this page I will share to you my projects or works as a second year college student, my works are just simple but created it whole heartedly. My journey as an IT becomes more exciting yet also risky, since I don't have any backgrounds in this course but through my instructors this course is really an interesting course. </p>
+        </div>
+    </section>
+
+    <!-- My Works Section -->
+    <section id="works">
+        <div class="section-title">
+            <h2>My Works</h2>
+        </div>
+        <div class="works-gallery">
+            <div class="work-item">
+                <img src="first project.jpeg" alt="Work 1">
+                <p>Project 1: JavaScript Assignment</p>
+            </div>
+            <div class="work-item">
+                <img src="2nd project.jpg" alt="Work 2">
+                <p>Project 2: Own System using Python Language</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Contact</h2>
+        </div>
+        <p>If you'd like to work together, feel free to reach out to me through the form below or on my social media channels!</p>
+        <form action="#">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
